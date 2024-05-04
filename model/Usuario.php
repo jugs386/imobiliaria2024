@@ -71,7 +71,19 @@ class Usuario extends Banco{
     }
 
     public function listAll(){
-
+        $conexao = new Conexao();
+        $conn = $conexao->getConection();
+        $query = "select * from usuario";
+        $stmt = $conn->prepare($query);
+        $result = array();
+        if($stmt->execute()){
+            while($rs = $stmt->fetchObject(Usuario::class)){
+                $result[] = $rs;
+            }
+        }else{
+            $result = false;
+        }
+        return $result;
     }
 
 

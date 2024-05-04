@@ -11,4 +11,9 @@ class UsuarioController{
         $usuario->setPermissao($_POST['permissao']);
         $usuario->save();
     }
+
+    public static function listar(){
+        $usuarios = new Usuario();
+        return $usuarios->listAll();
+    }
 }
