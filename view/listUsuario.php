@@ -17,7 +17,7 @@
         </tr>
         <?php 
 
-        require_once "../controller/UsuarioController.php";
+        require_once "controller/UsuarioController.php";
         $usuarios = call_user_func(array('UsuarioController','listar'));
         
         if(isset($usuarios)){
