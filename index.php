@@ -14,6 +14,7 @@ require_once 'controller/UsuarioController.php';
     if(isset($_GET['action'])){
         if($_GET['action'] == 'editar'){
             $usuario = call_user_func(array('UsuarioController','editar'),$_GET['id']);
+            require_once 'view/cadUsuario.php';
         }
 
         if($_GET['action'] == 'listar'){
