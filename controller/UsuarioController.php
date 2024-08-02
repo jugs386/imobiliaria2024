@@ -1,10 +1,10 @@
 <?php
-
 require_once 'model/Usuario.php';
 
 class UsuarioController{
 
     public static function salvar(){
+
         $usuario = new Usuario();
 
         $usuario->setId($_POST['id']);
@@ -22,7 +22,9 @@ class UsuarioController{
 
     public static function editar($id){
         $usuario = new Usuario();
+
         $usuario = $usuario->find($id);
+
         return $usuario;
     }
 
@@ -30,4 +32,13 @@ class UsuarioController{
         $usuario = new Usuario();
         $usuario = $usuario->remove($id);
     }
+
+    public static function logar(){
+        $usuario = new Usuario();
+        $usuario->setLogin($_POST['login']);
+        $usuario->setSenha($_POST['senha']);
+        return $usuario->logar();
+    }
 }
+
+?>
